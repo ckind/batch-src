@@ -1,6 +1,6 @@
 # batch-src
 
-bash batch script for converting .wav audio bit depth and sample rate
+bash script for batch converting .wav audio bit depth and sample rate
 
 ## Dependencies
 
