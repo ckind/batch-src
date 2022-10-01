@@ -8,7 +8,7 @@ bash batch script for converting .wav audio bit depth and sample rate
 
 ## Usage
 
-### Mac
+### Mac/Linux
 
 Clone this repo or simply download batch-src.sh
 
