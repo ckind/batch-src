@@ -15,16 +15,22 @@ convertFile() {
 
 processFiles() {
     PATH_TO_FILES="$1/*"
+
+    SAVEIFS=$IFS
+    IFS=$(echo -en "\n\b")
+
     for f in $PATH_TO_FILES
     do
         if [ -d "${f}" ]; then
-            processFiles "$f"
+            processFiles $f
         elif [ "${f: -4}" == ".wav" ]; then
             convertFile "$f"
         else
             echo " - Skipping $f"
         fi
     done
+
+    IFS=$SAVEIFS
 }
 
 ROOT_PATH=$1
@@ -63,7 +69,7 @@ elif [[ $ROOT_PATH_OUTPUT == "$ROOT_PATH/"* ]]; then
 else
     echo "=========== PROCESSING ==========="
     echo ""
-    processFiles $ROOT_PATH
+    processFiles "$ROOT_PATH"
     echo ""
     echo "============ COMPLETE ============"
 fi
